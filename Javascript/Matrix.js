@@ -22,12 +22,12 @@ class Matrix {
 
   /**
   * Randomizes the data in the matrix object using
-  * Javascript's built in Math.random() function.
+  * Javascript's built in Math.random() function between -1 and 1.
   */
   randomize() {
     for (let i=0; i < this.rows; i++) {
       for (let j=0; j < this.cols; j++) {
-        this.data[i][j] = Math.floor(Math.random() * 10 + 1);
+        this.data[i][j] = Math.random() * 2 - 1;
       }
     }
   }
@@ -107,6 +107,22 @@ class Matrix {
 
 
   /**
+  * Adds two matrices together in an elementwise fashion
+  * @param {n} Number : A matrix to add to the matrix
+  */
+  add(n) {
+    if (!(n instanceof Matrix)) throw "Matrix.add(n) expects n to be a Matrix object.";
+    if (n.cols != this.cols || n.rows != this.rows) throw "Matrix.add(n) must use two matrices of the same depth and width.";
+
+    for (let i=0; i < this.rows; i++) {
+      for (let j=0; j < this.cols; j++) {
+        this.data[i][j] += n.data[i][j];
+      }
+    }
+  }
+
+
+  /**
   * Converts a Matrix object to an Array object
   */
   toArray() {
@@ -128,17 +144,27 @@ class Matrix {
   * @param {Array} a : A 2D array to be converted to a Matrix
   */
   static toMatrix(a) {
-    let rows = a.length;
-    let cols = a[0].length;
-    let res = new Matrix(rows, cols);
+    let m = new Matrix(a.length, 1);
 
-    for (let i=0; i < res.rows; i++) {
-      for (let j=0; j < res.cols; j++) {
-        res.data[i][j] = a[i][j];
-      }
+    for (let i=0; i < m.rows; i++) {
+      m.data[i][0] = a[i];
     }
 
-    return res;
+    return m;
+  }
+
+
+  /**
+  * Copies and returns a new Matrix object.
+  */
+  copy() {
+    let m = new Matrix(this.rows, this.cols);
+    for (let i=0; i < this.rows; i++) {
+      for (let j=0; j < this.cols; j++) {
+        m.data[i][j] = this.data[i][j];
+      }
+    }
+    return m;
   }
 
 
