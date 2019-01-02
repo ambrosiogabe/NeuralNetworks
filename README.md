@@ -1,5 +1,5 @@
 # AI Libraries
-This Github repository is a collection of libraries that I am creating in several different languages as I gain experience build Neural Networks. If you click through there will be an Examples directory inside each of the languages folder. Those examples will contain the code, and display a simple example of how to use each of the different libraries.
+This Github repository is a collection of libraries that I am creating in several different languages as I gain experience building Neural Networks. If you click through there will be an Examples directory inside each of the languages folder. Those examples will contain the code, and display a simple example of how to use each of the different libraries.
 
 ## Javascript
 So far, for the Javascript library I have built a simple Matrix class, and I have also built a NeuralNetwork class. The Matrix class consists of some functions that perform matrix operations, and some functions that help me copy matrices etc. I know there are several libraries already available that do this, but in my quest for knowledge I wanted to build everything from the ground up, so that I have complete understanding of the material.
@@ -30,7 +30,7 @@ So, to access any particular output node you would simply type in <code>output[i
 #### Evolution Example
 Let's say you wanted to make your neural network evolve based on two of the strongest pairs. It is relatively simple to do using the library in its current state.
 
-There are two ways you can go about this, you can either create "baby" neural networks using to parents, or you can clone a neural network and simply mutate the genes. Here is two coded examples using my library, the examples assume that you have two strong neural networks named <code>strongOne</code> and <code>strongOne2</code>.
+There are two ways you can go about this, you can either create "baby" neural networks using two parents, or you can clone a neural network and simply mutate the genes. Here are two coded examples using my library, the examples assume that you have two strong neural networks named <code>strongOne</code> and <code>strongOne2</code>.
 
 ```
 // Create a baby using two neural networks
